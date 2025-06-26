@@ -2,7 +2,7 @@
 
 🔗 **Live Demo:** https://digital-library-f.vercel.app/
 
-Welcome to the Digital Library Frontend! This application provides an intuitive and engaging user interface for exploring a vast collection of books, managing your personal reading list, and handling user authentication. It's designed to offer a seamless user experience, allowing you to sign up, log in, browse public books, and curate your own digital library with ease. This frontend interacts with a separate backend API to fetch and manage data.
+Welcome to the Digital Library Frontend!! This application provides an intuitive and engaging user interface for exploring a vast collection of books, managing your personal reading list, and handling user authentication. It's designed to offer a seamless user experience, allowing you to sign up, log in, browse public books, and curate your own digital library with ease. This frontend interacts with a separate backend API to fetch and manage data.
 
 ---
 
