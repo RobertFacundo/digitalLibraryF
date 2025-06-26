@@ -2,8 +2,9 @@
     width: 100%;
     text-align: center;
     font-size: 1rem;
-    color: #df7777; // color dorado
+    background: rgba(251, 249, 245, 0.713); // Tu color de fondo existente
     max-height: 5rem;
+    color: #333; // Color de texto oscuro
     position: fixed;
     bottom: 0;
     left: 0;
@@ -13,16 +14,13 @@
 }
 
 .github-link {
-    color: rgb(234, 86, 86); // usa variables o color fijo
+    color: #333; // Color de texto oscuro
     text-decoration: none;
     font-weight: 800;
     transition: text-shadow 1.2s ease;
     letter-spacing: 0.1rem;
 
     &:hover {
-        text-shadow:
-            0 0 2px #ffffffd0,
-            0 0 3px #ffffff80,
-            0 0 7px transparent;
+      color: #070707;
     }
 }
