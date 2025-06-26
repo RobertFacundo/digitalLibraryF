@@ -1,0 +1,124 @@
+/* src/styles/Authentication.scss */
+
+.authentication-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px); // Ajusta según la altura de tu navegación/footer
+    background-color: #f8f5ee1d; // Un fondo suave, similar al que podría tener el body o un área más grande
+    font-family: 'Comfortaa', cursive; // Usamos la misma fuente
+
+    h2 {
+        font-size: 2.2rem;
+        color: #fffdfd;
+        margin-bottom: 2rem;
+        text-align: center;
+        letter-spacing: 1.2px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+
+        @media (max-width: 768px) {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    form {
+        background: rgba(251, 249, 245, 0.9); // Fondo similar al de BookCard
+        border-radius: 12px; // Bordes más redondeados que el card, para destacar un poco
+        padding: 2.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); // Sombra más pronunciada para un formulario
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem; // Espacio entre elementos del formulario
+        width: 100%;
+        max-width: 400px; // Ancho máximo para el formulario
+        margin-bottom: 1.5rem; // Espacio antes del mensaje de alternar modo
+        transition: box-shadow 0.3s ease-in-out;
+
+        &:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); // Sombra más intensa al pasar el mouse
+        }
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 0.8rem 1rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px; // Bordes redondeados para los inputs
+        font-size: 1rem;
+        font-family: 'Comfortaa', cursive;
+        color: #333;
+        background-color: #ffffff;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: #f0c38e; // Color de acento al enfocar
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05); // Sombra suave de enfoque
+        }
+
+        &::placeholder {
+            color: #aaa;
+        }
+    }
+
+    button[type="submit"] {
+        padding: 1rem 1.5rem; // Color de acento cálido para el botón principal
+        color: #333333c8;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-family: 'Comfortaa', cursive;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        font-weight: bold;
+        letter-spacing: 0.8px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05); // Tono más oscuro al pasar el mouse
+            transform: translateY(-2px); // Ligeramente elevado
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        &:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            opacity: 0.7;
+        }
+    }
+
+    // Estilos para mensajes de error
+    p {
+        font-family: 'Comfortaa', cursive;
+        font-size: 0.95rem;
+        color: #faf0f0;
+        text-align: center;
+        margin-top: 1rem; // Espacio superior para separar del botón/formulario
+    }
+
+    .error-message { // Puedes añadir esta clase a tu p de error si quieres un color específico
+        color: #d9534f; // Color rojo para errores
+        font-weight: bold;
+    }
+
+    // Estilos para el texto de alternar modo (Log In / Sign Up)
+    span {
+        color: #e6e3e0; // Color de acento para el texto clickeable
+        cursor: pointer;
+        font-weight: bold;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: #fff3e6; // Tono más oscuro al pasar el mouse
+            text-decoration: underline; // Subrayado al pasar el mouse
+        }
+    }
+}

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import Masonry from "react-masonry-css";
 import bookService from "../../services/bookServices";
 import BookCard from "./BookCard";
 import '../styles/BookGrid.scss';
@@ -7,6 +8,13 @@ export default function BookGrid() {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const handleLibraryUpdate = useCallback((updatedUser) => {
+        if (updatedUser && updatedUser.books) {
+            localStorage.setItem('user', JSON.stringify(updatedUser))
+            console.log("LocalStorage 'user' updated from BookGrid after add.");
+        }
+    }, [])
 
     useEffect(() => {
         bookService.getBooks()
@@ -29,15 +37,32 @@ export default function BookGrid() {
             .map(({ value }) => value)
     }
 
+    const breakpointColumnsObj = {
+        default: 5,
+        1100: 4,
+        700: 3,
+        500: 1,
+    }
+
     if (loading) return <p>Loading books...</p>
     if (error) return <p>{error}</p>
 
 
     return (
-        <div className="book-grid">
-            {books.map(book => (
-                <BookCard key={book.id} book={book} />
+        <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+        >
+            {books.map((book, index) => (
+                <BookCard 
+                key={book.id} 
+                book={book} 
+                index={index} 
+                isLibraryView={false}
+                onLibraryUpdate={handleLibraryUpdate}
+                />
             ))}
-        </div>
+        </Masonry>
     );
 }

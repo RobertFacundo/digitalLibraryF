@@ -1,5 +1,9 @@
-export const Profile = ()=>{
+import ProfileGrid from "../components/Profile/ProfileGrid"
+
+export const Profile = () => {
     return (
-        <h1>profile View</h1>
+        <>
+            <ProfileGrid />
+        </>
     )
 }

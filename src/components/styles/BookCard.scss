@@ -1,6 +1,7 @@
 .book-card {
   border-radius: 8px;
   padding: 1rem;
+  padding-bottom: 2px;
   width: 100%;
   max-width: 100%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -31,6 +32,9 @@
     border-bottom: 2px solid rgba(0, 0, 0, 0.239);
     letter-spacing: 1px;
     font-family: 'Comfortaa';
+    display: flex; // Convierte el h3 en un contenedor flex
+    justify-content: space-between; // Alinea el primer elemento a la izquierda y el último a la derecha
+    align-items: center;
   }
 
   &__author-year {
@@ -49,6 +53,7 @@
     font-weight: 200;
     text-align: center;
     letter-spacing: 2px;
+    padding-top: 5px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.078);
     font-family: "Comfortaa";
 
@@ -66,24 +71,67 @@
     background: #eeeeee83;
     border-radius: 12px;
     padding: 0.2rem 0.6rem;
+    margin-top: 5px;
     margin-right: 0.3rem;
     font-size: 0.75rem;
     text-transform: capitalize;
   }
 
-   &__details {
-    animation: fadeIn 0.3s ease-in-out;
+  &__expand-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out; // Transición para la rotación
+    margin-top: auto; // ¡Esto empuja la flecha al final del flex container!
+    // padding-top: 10px; // Espacio para separar la flecha de los detalles o del título (cuando no expandido)
+    // padding-bottom: 5px; // Pequeño padding interno para la flecha
+    height: 9px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    // La rotación se aplica cuando la clase 'expanded' está presente
+    &.expanded {
+      transform: rotate(180deg);
+    }
   }
-}
 
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
+  &__details {
+    margin-top: 0px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .book-card__action-btn {
+    border: 1px solid rgba(0, 0, 0, 0.1); // Borde sutil
+    border-radius: 50%; // Circular
+    width: 20px; // Tamaño del botón
+    height: 20px; // Tamaño del botón
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.4em; // ✅ Tamaño del emoji
+    line-height: 1; // Ajuste de la altura de línea para el emoji
+    z-index: 10; // Asegura que esté por encima de otros elementos
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Pequeña sombra para pop
+    transition: background-color 0.2s ease, transform 0.2s ease; // Transiciones suaves
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 1); // Más opaco al pasar el mouse
+      transform: scale(1.05); // Ligeramente más grande
+    }
+
+    &:active {
+      transform: scale(0.95); // Un pequeño "click" al presionarlo
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
   }
 }

@@ -1,0 +1,41 @@
+/* NavBar.scss */
+
+.nav-bar {
+  background: rgba(251, 249, 245, 0.713); // Tu color de fondo existente
+  display: flex; // Usa flexbox para alinear los enlaces
+  justify-content: center; // Centra los enlaces horizontalmente
+  align-items: center; // Centra los enlaces verticalmente
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // Una sombra sutil para darle profundidad
+  position: sticky; // Para que la barra de navegación se quede arriba al hacer scroll
+  top: 0; // Se pegará a la parte superior de la ventana
+  z-index: 1000; // Asegura que esté por encima de otros elementos al hacer scroll
+  backdrop-filter: blur(5px); // Efecto de desenfoque para un look moderno (si el navegador lo soporta)
+  -webkit-backdrop-filter: blur(5px); // Prefijo para compatibilidad con Safari
+  margin-bottom: 20px;
+
+  a {
+    // Estilos para los enlaces (Link) dentro de la nav-bar
+    color: #333; // Color de texto oscuro
+    text-decoration: none; // Quita el subrayado predeterminado
+    font-size: 1.1rem; // Tamaño de fuente
+    font-weight: 500; // Un poco más de grosor en la fuente
+    padding: 0.5rem 1rem; // Relleno alrededor del texto del enlace
+    margin: 0 1rem; // Espacio entre los enlaces
+    border-radius: 6px; // Bordes ligeramente redondeados
+    transition: all 0.3s ease; // Transición suave para los efectos hover/active
+    font-family: 'Comfortaa', sans-serif; // Consistencia con tus BookCards
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05); // Un ligero fondo al pasar el mouse
+     color: #000000;  // Un color de énfasis al pasar el mouse
+      transform: translateY(-2px); // Un pequeño efecto de levantamiento
+    }
+
+    &.active {
+      // Estilos para el enlace activo (si estás usando NavLink o manejas el estado activo)
+      color: #000000;  // Color de énfasis para el enlace actual
+      border-bottom: 2px solid #007bff; // Subrayado para indicar que está activo
+      font-weight: 600; // Un poco más de énfasis
+    }
+  }
+}

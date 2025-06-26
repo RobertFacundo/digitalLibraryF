@@ -1,0 +1,54 @@
+/* src/styles/ProfileGrid.scss */
+
+.profile-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; // Esto centra el texto y elementos inline-block dentro del contenedor
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Esto centra los elementos flex hijos horizontalmente
+
+    h2 {
+        // ✅ Estilos para el título "Your library"
+        font-family: 'Comfortaa', cursive; // La misma fuente para coherencia
+        font-size: 2rem; // Un tamaño ligeramente menor que el h1
+        color: #d3c7c7; // Un gris más suave que el h1
+        position: relative; // Para el posible pseudo-elemento decorativo
+        padding-bottom: 0.5rem; // Espacio para la línea decorativa
+
+        &::after {
+            content: ''; // Contenido vacío para el pseudo-elemento
+            display: block;
+            width: 80px; // Ancho de la línea
+            height: 3px; // Grosor de la línea
+            background-color: #968775; // Un color de acento (puedes ajustar)
+            margin: 0.5rem auto 0; // Centra la línea debajo del texto
+            border-radius: 2px; // Bordes redondeados para la línea
+        }
+
+        // Media query para pantallas más pequeñas
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .my-masonry-grid {
+        display: flex;
+        margin-left: -30px;
+        width: 100%; /* ¡Asegúrate de que el Masonry ocupe todo el ancho disponible! */
+        margin-top: 20px;
+    }
+    .my-masonry-grid_column {
+        padding-left: 80px;
+        background-clip: padding-box;
+    }
+
+    .my-masonry-grid_column > div { 
+        margin-bottom: 30px;
+        // Si no tienes un width: 100% en .book-card, podrías necesitarlo aquí:
+        // width: 100%; 
+    }
+}

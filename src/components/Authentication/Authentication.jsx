@@ -1,4 +1,5 @@
-import useAuthForm from "../../hooks/useAuthForm";
+import useAuthForm from "../../hooks/useAuthForm.js";
+import './Authentication.scss';
 
 export default function Authentication() {
     const {
@@ -12,7 +13,7 @@ export default function Authentication() {
     } = useAuthForm();
 
     return (
-        <div>
+        <div className="authentication-container">
             <h2>Authentication</h2>
             <form onSubmit={handleSubmit}>
                 <input 

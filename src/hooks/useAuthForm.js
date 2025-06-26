@@ -33,6 +33,9 @@ export default function useAuthForm() {
                 ? await authService.signup(formData)
                 : await authService.login(formData);
             console.log('✅ Auth successful:', response.data);
+            localStorage.setItem('access_token', response.data.access_token);
+            localStorage.setItem('user', JSON.stringify(response.data.user));
+            
             navigate('/Home')
         } catch (error){
             console.error('Auth error:', error);
